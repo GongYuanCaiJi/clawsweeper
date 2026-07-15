@@ -646,7 +646,7 @@ jobs:
         if: ${{ steps.live-item.outputs.proceed == 'true' }}
         run: |
           set -euo pipefail
-          url="https://github.com/${{ steps.target.outputs.target_repo }}.git"
+          url="https://x-access-token:${{ steps.target-read-token.outputs.token }}@github.com/${{ steps.target.outputs.target_repo }}.git"
           cache_dir="${{ steps.target.outputs.target_checkout_dir }}-cache.git"
           checkout_dir="${{ steps.target.outputs.target_checkout_dir }}"
           target_branch="${{ steps.live-item.outputs.target_branch }}"
