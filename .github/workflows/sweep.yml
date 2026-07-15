@@ -743,6 +743,7 @@ jobs:
             --codex-sandbox read-only \
             --codex-timeout-ms "$codex_timeout_ms" \
             --item-numbers "${{ steps.target.outputs.item_number }}" \
+            --skip-start-comment \
             --readonly-openclaw \
             --skip-start-comment \
             --shard-index 0 \
@@ -2352,6 +2353,7 @@ jobs:
             --item-numbers "${{ matrix.item_numbers }}" \
             "${planned_automatic_review_arg[@]}" \
             "${hot_intake_arg[@]}" \
+            --skip-start-comment \
             --readonly-openclaw \
             --shard-index ${{ matrix.shard }} \
             --shard-count ${{ needs.plan.outputs.planned_shards }} \
