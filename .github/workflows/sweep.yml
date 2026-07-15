@@ -2269,7 +2269,7 @@ jobs:
       - name: Check out target repository
         run: |
           set -euo pipefail
-          url="https://github.com/${{ needs.plan.outputs.target_repo }}.git"
+          url="https://x-access-token:${{ steps.target-read-token.outputs.token }}@github.com/${{ needs.plan.outputs.target_repo }}.git"
           cache_dir="${{ needs.plan.outputs.target_checkout_dir }}-cache.git"
           checkout_dir="${{ needs.plan.outputs.target_checkout_dir }}"
           target_branch="${{ needs.plan.outputs.target_branch }}"
