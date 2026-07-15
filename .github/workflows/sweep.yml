@@ -12,21 +12,21 @@ run-name: >-
     (github.event_name == 'repository_dispatch' &&
       github.event.action == 'clawsweeper_target_sweep' &&
       github.event.client_payload.hot_intake == 'true') &&
-      format('Review hot target repo {0}', github.event.client_payload.target_repo || 'openclaw/openclaw') ||
+      format('Review hot target repo {0}', github.event.client_payload.target_repo || 'GongYuanCaiJi/global-governance') ||
     (github.event_name == 'repository_dispatch' &&
       github.event.action == 'clawsweeper_target_sweep') &&
-      format('Review target repo {0}', github.event.client_payload.target_repo || 'openclaw/openclaw') ||
+      format('Review target repo {0}', github.event.client_payload.target_repo || 'GongYuanCaiJi/global-governance') ||
     (github.event_name == 'repository_dispatch' && github.event.client_payload.queue_lease_id != '') &&
       format('Review event item {0}', github.event.client_payload.queue_claim.item_key || github.event.client_payload.item_key || '?') ||
     (github.event_name == 'repository_dispatch' && github.event.client_payload.dispatch_key != '') &&
-      format('Review event item {0}#{1} [{2}]', github.event.client_payload.target_repo || 'openclaw/openclaw', github.event.client_payload.item_number || '?', github.event.client_payload.dispatch_key) ||
+      format('Review event item {0}#{1} [{2}]', github.event.client_payload.target_repo || 'GongYuanCaiJi/global-governance', github.event.client_payload.item_number || '?', github.event.client_payload.dispatch_key) ||
     github.event_name == 'repository_dispatch' &&
-      format('Review event item {0}#{1}', github.event.client_payload.target_repo || 'openclaw/openclaw', github.event.client_payload.item_number || '?') ||
+      format('Review event item {0}#{1}', github.event.client_payload.target_repo || 'GongYuanCaiJi/global-governance', github.event.client_payload.item_number || '?') ||
     ((github.event_name == 'workflow_dispatch' &&
       github.event.inputs.apply_existing == 'true' &&
       github.event.inputs.apply_sync_comments_only == 'true') ||
       (github.event_name == 'schedule' && github.event.schedule == '6,21,36,51 * * * *')) &&
-      format('Sync Codex review comments for {0}', github.event.inputs.target_repo || 'openclaw/openclaw') ||
+      format('Sync Codex review comments for {0}', github.event.inputs.target_repo || 'GongYuanCaiJi/global-governance') ||
     (github.event_name == 'workflow_dispatch' &&
       github.event.inputs.apply_existing == 'true' &&
       github.event.inputs.apply_sync_comments_only != 'true' &&
@@ -40,7 +40,7 @@ run-name: >-
         github.event.inputs.apply_close_delay_ms != '2000' ||
         github.event.inputs.apply_checkpoint_size != '20' ||
         github.event.inputs.apply_comment_sync_min_age_days != '7')) &&
-      format('Apply custom ClawSweeper closures for {0}', github.event.inputs.target_repo || 'openclaw/openclaw') ||
+      format('Apply custom ClawSweeper closures for {0}', github.event.inputs.target_repo || 'GongYuanCaiJi/global-governance') ||
     ((github.event_name == 'workflow_dispatch' && github.event.inputs.apply_existing == 'true') ||
       (github.event_name == 'schedule' &&
         (github.event.schedule == '3 * * * *' ||
@@ -48,19 +48,19 @@ run-name: >-
           github.event.schedule == '33 * * * *' ||
           github.event.schedule == '48 * * * *' ||
           github.event.schedule == '8,23,38,53 * * * *'))) &&
-      format('Apply default ClawSweeper closures for {0}', github.event.inputs.target_repo || ((github.event.schedule == '8,23,38,53 * * * *') && 'openclaw/clawhub' || 'openclaw/openclaw')) ||
+      format('Apply default ClawSweeper closures for {0}', github.event.inputs.target_repo || ((github.event.schedule == '8,23,38,53 * * * *') && 'openclaw/clawhub' || 'GongYuanCaiJi/global-governance')) ||
     (github.event_name == 'workflow_dispatch' && startsWith(github.event.inputs.item_numbers, 'router-')) &&
-      format('Review event item {0}#{1} [{2}]', github.event.inputs.target_repo || 'openclaw/openclaw', github.event.inputs.item_number || '?', github.event.inputs.item_numbers) ||
+      format('Review event item {0}#{1} [{2}]', github.event.inputs.target_repo || 'GongYuanCaiJi/global-governance', github.event.inputs.item_number || '?', github.event.inputs.item_numbers) ||
     (github.event_name == 'workflow_dispatch' &&
       github.event.inputs.item_number != '' &&
       github.event.inputs.item_numbers != '') &&
-      format('Review event items {0}#{1},{2} [shards={3}]', github.event.inputs.target_repo || 'openclaw/openclaw', github.event.inputs.item_number, github.event.inputs.item_numbers, (github.event.inputs.hot_intake == 'true' && '1' || github.event.inputs.shard_count || '89')) ||
+      format('Review event items {0}#{1},{2} [shards={3}]', github.event.inputs.target_repo || 'GongYuanCaiJi/global-governance', github.event.inputs.item_number, github.event.inputs.item_numbers, (github.event.inputs.hot_intake == 'true' && '1' || github.event.inputs.shard_count || '89')) ||
     (github.event_name == 'workflow_dispatch' &&
       github.event.inputs.item_number != '' &&
       github.event.inputs.item_numbers == '') &&
-      format('Review event item {0}#{1}', github.event.inputs.target_repo || 'openclaw/openclaw', github.event.inputs.item_number) ||
+      format('Review event item {0}#{1}', github.event.inputs.target_repo || 'GongYuanCaiJi/global-governance', github.event.inputs.item_number) ||
     (github.event_name == 'workflow_dispatch' && github.event.inputs.item_numbers != '') &&
-      format('Review event items {0}#{1} [shards={2}]', github.event.inputs.target_repo || 'openclaw/openclaw', github.event.inputs.item_numbers, (github.event.inputs.hot_intake == 'true' && '1' || github.event.inputs.shard_count || '89')) ||
+      format('Review event items {0}#{1} [shards={2}]', github.event.inputs.target_repo || 'GongYuanCaiJi/global-governance', github.event.inputs.item_numbers, (github.event.inputs.hot_intake == 'true' && '1' || github.event.inputs.shard_count || '89')) ||
     ((github.event_name == 'workflow_dispatch' && github.event.inputs.audit_dashboard == 'true') ||
       (github.event_name == 'schedule' &&
         (github.event.schedule == '7 */6 * * *' ||
@@ -83,7 +83,7 @@ on:
       target_repo:
         description: "Repository to sweep"
         required: false
-        default: "openclaw/openclaw"
+        default: "GongYuanCaiJi/global-governance"
       target_branch:
         description: "Target repository branch to review"
         required: false
@@ -212,7 +212,7 @@ env:
   CLAWSWEEPER_MODEL: internal
 
 concurrency:
-  group: ${{ (github.event_name == 'schedule' && (github.event.schedule == '4/15 * * * *' || github.event.schedule == '41 * * * *' || github.event.schedule == '37 */6 * * *')) && format('clawsweeper-target-fanout-{0}', github.event.schedule || github.run_id) || github.event_name == 'repository_dispatch' && format('clawsweeper-event-{0}-{1}', github.event.client_payload.target_repo || 'openclaw/openclaw', github.event.client_payload.queue_lease_id || github.event.client_payload.item_number || github.run_id) || format('{0}-{1}', (github.event_name == 'schedule' && github.event.schedule == '13 * * * *') && 'clawsweeper-failed-review-retry' || (github.event_name == 'workflow_dispatch' && github.event.inputs.apply_existing == 'true' && github.event.inputs.apply_sync_comments_only == 'true') && format('clawsweeper-comment-sync-{0}', github.run_id) || (github.event_name == 'schedule' && github.event.schedule == '6,21,36,51 * * * *') && 'clawsweeper-comment-sync' || (github.event_name == 'workflow_dispatch' && github.event.inputs.apply_existing == 'true') && format('clawsweeper-apply-{0}', github.run_id) || (github.event_name == 'schedule' && (github.event.schedule == '3 * * * *' || github.event.schedule == '18 * * * *' || github.event.schedule == '33 * * * *' || github.event.schedule == '48 * * * *' || github.event.schedule == '8,23,38,53 * * * *')) && 'clawsweeper-apply' || (github.event_name == 'workflow_dispatch' && (github.event.inputs.item_number != '' || github.event.inputs.item_numbers != '')) && format('clawsweeper-intake-exact-{0}', github.event.inputs.item_number || github.event.inputs.item_numbers) || ((github.event_name == 'workflow_dispatch' && github.event.inputs.hot_intake == 'true') || (github.event_name == 'schedule' && (github.event.schedule == '*/5 * * * *' || github.event.schedule == '2/5 * * * *'))) && 'clawsweeper-intake-v2' || ((github.event_name == 'workflow_dispatch' && github.event.inputs.audit_dashboard == 'true') || (github.event_name == 'schedule' && (github.event.schedule == '7 */6 * * *' || github.event.schedule == '12 */6 * * *' || github.event.schedule == '17 */6 * * *'))) && 'clawsweeper-audit' || 'clawsweeper-review', github.event.inputs.target_repo || github.event.client_payload.target_repo || ((github.event.schedule == '17 */6 * * *') && 'openclaw/clawsweeper' || ((github.event.schedule == '2/5 * * * *' || github.event.schedule == '22 * * * *' || github.event.schedule == '8,23,38,53 * * * *' || github.event.schedule == '12 */6 * * *') && 'openclaw/clawhub' || 'openclaw/openclaw'))) }}
+  group: ${{ (github.event_name == 'schedule' && (github.event.schedule == '4/15 * * * *' || github.event.schedule == '41 * * * *' || github.event.schedule == '37 */6 * * *')) && format('clawsweeper-target-fanout-{0}', github.event.schedule || github.run_id) || github.event_name == 'repository_dispatch' && format('clawsweeper-event-{0}-{1}', github.event.client_payload.target_repo || 'GongYuanCaiJi/global-governance', github.event.client_payload.queue_lease_id || github.event.client_payload.item_number || github.run_id) || format('{0}-{1}', (github.event_name == 'schedule' && github.event.schedule == '13 * * * *') && 'clawsweeper-failed-review-retry' || (github.event_name == 'workflow_dispatch' && github.event.inputs.apply_existing == 'true' && github.event.inputs.apply_sync_comments_only == 'true') && format('clawsweeper-comment-sync-{0}', github.run_id) || (github.event_name == 'schedule' && github.event.schedule == '6,21,36,51 * * * *') && 'clawsweeper-comment-sync' || (github.event_name == 'workflow_dispatch' && github.event.inputs.apply_existing == 'true') && format('clawsweeper-apply-{0}', github.run_id) || (github.event_name == 'schedule' && (github.event.schedule == '3 * * * *' || github.event.schedule == '18 * * * *' || github.event.schedule == '33 * * * *' || github.event.schedule == '48 * * * *' || github.event.schedule == '8,23,38,53 * * * *')) && 'clawsweeper-apply' || (github.event_name == 'workflow_dispatch' && (github.event.inputs.item_number != '' || github.event.inputs.item_numbers != '')) && format('clawsweeper-intake-exact-{0}', github.event.inputs.item_number || github.event.inputs.item_numbers) || ((github.event_name == 'workflow_dispatch' && github.event.inputs.hot_intake == 'true') || (github.event_name == 'schedule' && (github.event.schedule == '*/5 * * * *' || github.event.schedule == '2/5 * * * *'))) && 'clawsweeper-intake-v2' || ((github.event_name == 'workflow_dispatch' && github.event.inputs.audit_dashboard == 'true') || (github.event_name == 'schedule' && (github.event.schedule == '7 */6 * * *' || github.event.schedule == '12 */6 * * *' || github.event.schedule == '17 */6 * * *'))) && 'clawsweeper-audit' || 'clawsweeper-review', github.event.inputs.target_repo || github.event.client_payload.target_repo || ((github.event.schedule == '17 */6 * * *') && 'openclaw/clawsweeper' || ((github.event.schedule == '2/5 * * * *' || github.event.schedule == '22 * * * *' || github.event.schedule == '8,23,38,53 * * * *' || github.event.schedule == '12 */6 * * *') && 'openclaw/clawhub' || 'GongYuanCaiJi/global-governance'))) }}
   cancel-in-progress: false
 
 jobs:
@@ -245,7 +245,7 @@ jobs:
           IFS=$'\t' read -r target_repo target_branch < <(node <<'NODE'
           const payload = JSON.parse(process.env.CLIENT_PAYLOAD || "{}");
           process.stdout.write(
-            `${String(payload.target_repo || "openclaw/openclaw").trim()}\t${String(payload.target_branch || "").trim()}\n`,
+            `${String(payload.target_repo || "GongYuanCaiJi/global-governance").trim()}\t${String(payload.target_branch || "").trim()}\n`,
           );
           NODE
           )
@@ -523,17 +523,7 @@ jobs:
         if: ${{ steps.target.outputs.target_enabled == 'true' }}
         id: target-read-token
         continue-on-error: true
-        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
-        with:
-          client-id: ${{ env.CLAWSWEEPER_APP_CLIENT_ID }}
-          private-key: ${{ secrets.CLAWSWEEPER_APP_PRIVATE_KEY }}
-          owner: ${{ steps.target.outputs.target_repo_owner }}
-          repositories: ${{ steps.target.outputs.target_repo_name }}
-          permission-checks: read
-          permission-contents: read
-          permission-issues: read
-          permission-pull-requests: read
-          permission-statuses: read
+        run: echo "token=${{ secrets.CLAWSWEEPER_PAT }}" >> "$GITHUB_OUTPUT"
 
       - name: Check live target item state
         if: ${{ steps.target.outputs.target_enabled == 'true' }}
@@ -606,17 +596,7 @@ jobs:
         if: ${{ steps.live-item.outcome == 'success' }}
         id: target-write-token
         continue-on-error: true
-        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
-        with:
-          client-id: ${{ env.CLAWSWEEPER_APP_CLIENT_ID }}
-          private-key: ${{ secrets.CLAWSWEEPER_APP_PRIVATE_KEY }}
-          owner: ${{ steps.target.outputs.target_repo_owner }}
-          repositories: ${{ steps.target.outputs.target_repo_name }}
-          permission-checks: read
-          permission-contents: write
-          permission-issues: write
-          permission-pull-requests: write
-          permission-statuses: read
+        run: echo "token=${{ secrets.CLAWSWEEPER_PAT }}" >> "$GITHUB_OUTPUT"
 
       - uses: ./.github/actions/setup-pnpm
         id: setup-pnpm
@@ -1255,24 +1235,14 @@ jobs:
       - name: Create target write token
         id: target-write-token
         continue-on-error: true
-        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
-        with:
-          client-id: ${{ env.CLAWSWEEPER_APP_CLIENT_ID }}
-          private-key: ${{ secrets.CLAWSWEEPER_APP_PRIVATE_KEY }}
-          owner: ${{ steps.publication-context.outputs.target_repo_owner }}
-          repositories: ${{ steps.publication-context.outputs.target_repo_name }}
-          permission-checks: read
-          permission-contents: write
-          permission-issues: write
-          permission-pull-requests: write
-          permission-statuses: read
+        run: echo "token=${{ secrets.CLAWSWEEPER_PAT }}" >> "$GITHUB_OUTPUT"
 
       - name: Create state token
         id: state-token
         uses: ./.github/actions/create-state-token
         with:
           client-id: ${{ env.CLAWSWEEPER_APP_CLIENT_ID }}
-          private-key: ${{ secrets.CLAWSWEEPER_APP_PRIVATE_KEY }}
+          private-key: ${{ secrets.CLAWSWEEPER_PAT }}
 
       - uses: ./.github/actions/setup-state
         id: setup-state
@@ -1768,7 +1738,7 @@ jobs:
         uses: ./.github/actions/create-state-token
         with:
           client-id: ${{ env.CLAWSWEEPER_APP_CLIENT_ID }}
-          private-key: ${{ secrets.CLAWSWEEPER_APP_PRIVATE_KEY }}
+          private-key: ${{ secrets.CLAWSWEEPER_PAT }}
 
       - uses: ./.github/actions/setup-state
         with:
@@ -1780,20 +1750,12 @@ jobs:
 
       - name: Create OpenClaw inventory token
         id: openclaw-token
-        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
-        with:
-          client-id: ${{ env.CLAWSWEEPER_APP_CLIENT_ID }}
-          private-key: ${{ secrets.CLAWSWEEPER_APP_PRIVATE_KEY }}
-          owner: openclaw
+        run: echo "token=${{ secrets.CLAWSWEEPER_PAT }}" >> "$GITHUB_OUTPUT"
 
       - name: Create steipete inventory token
         id: steipete-token
         continue-on-error: true
-        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
-        with:
-          client-id: ${{ env.CLAWSWEEPER_APP_CLIENT_ID }}
-          private-key: ${{ secrets.CLAWSWEEPER_APP_PRIVATE_KEY }}
-          owner: steipete
+        run: echo "token=${{ secrets.CLAWSWEEPER_PAT }}" >> "$GITHUB_OUTPUT"
 
       - name: Dispatch selected targets
         env:
@@ -1825,7 +1787,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     concurrency:
-      group: ${{ format('clawsweeper-planner-{0}', (github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && github.event.inputs.item_number == '' && github.event.inputs.item_numbers == '')) && (github.event.inputs.target_repo || ((github.event.schedule == '2/5 * * * *' || github.event.schedule == '22 * * * *') && 'openclaw/clawhub' || 'openclaw/openclaw')) || github.run_id) }}
+      group: ${{ format('clawsweeper-planner-{0}', (github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && github.event.inputs.item_number == '' && github.event.inputs.item_numbers == '')) && (github.event.inputs.target_repo || ((github.event.schedule == '2/5 * * * *' || github.event.schedule == '22 * * * *') && 'openclaw/clawhub' || 'GongYuanCaiJi/global-governance')) || github.run_id) }}
       cancel-in-progress: false
     outputs:
       batch_size: ${{ steps.mode.outputs.batch_size }}
@@ -1867,7 +1829,7 @@ jobs:
                 target_repo="openclaw/clawhub"
                 ;;
               *)
-                target_repo="openclaw/openclaw"
+                target_repo="GongYuanCaiJi/global-governance"
               ;;
             esac
           fi
@@ -1892,22 +1854,14 @@ jobs:
       - name: Create target read token
         id: target-read-token
         continue-on-error: true
-        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
-        with:
-          client-id: ${{ env.CLAWSWEEPER_APP_CLIENT_ID }}
-          private-key: ${{ secrets.CLAWSWEEPER_APP_PRIVATE_KEY }}
-          owner: ${{ steps.target.outputs.target_repo_owner }}
-          repositories: ${{ steps.target.outputs.target_repo_name }}
-          permission-contents: read
-          permission-issues: read
-          permission-pull-requests: read
+        run: echo "token=${{ secrets.CLAWSWEEPER_PAT }}" >> "$GITHUB_OUTPUT"
 
       - name: Create state token
         id: state-token
         uses: ./clawsweeper/.github/actions/create-state-token
         with:
           client-id: ${{ env.CLAWSWEEPER_APP_CLIENT_ID }}
-          private-key: ${{ secrets.CLAWSWEEPER_APP_PRIVATE_KEY }}
+          private-key: ${{ secrets.CLAWSWEEPER_PAT }}
 
       - uses: ./clawsweeper/.github/actions/setup-state
         with:
@@ -2100,7 +2054,7 @@ jobs:
             else
               batch_size="${{ github.event.client_payload.batch_size || github.event.inputs.batch_size || '3' }}"
             fi
-            if [ "$target_repo" = "openclaw/openclaw" ]; then
+            if [ "$target_repo" = "GongYuanCaiJi/global-governance" ]; then
               min_active_shards="$normal_active_floor"
             else
               min_active_shards="0"
@@ -2272,30 +2226,12 @@ jobs:
       - name: Create target review token
         id: target-read-token
         continue-on-error: true
-        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
-        with:
-          client-id: ${{ env.CLAWSWEEPER_APP_CLIENT_ID }}
-          private-key: ${{ secrets.CLAWSWEEPER_APP_PRIVATE_KEY }}
-          owner: ${{ needs.plan.outputs.target_repo_owner }}
-          repositories: ${{ needs.plan.outputs.target_repo_name }}
-          permission-checks: read
-          permission-contents: read
-          permission-issues: write
-          permission-pull-requests: write
-          permission-statuses: read
+        run: echo "token=${{ secrets.CLAWSWEEPER_PAT }}" >> "$GITHUB_OUTPUT"
 
       - name: Create target Codex inspection token
         id: codex-inspection-token
         continue-on-error: true
-        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
-        with:
-          client-id: ${{ env.CLAWSWEEPER_APP_CLIENT_ID }}
-          private-key: ${{ secrets.CLAWSWEEPER_APP_PRIVATE_KEY }}
-          owner: ${{ needs.plan.outputs.target_repo_owner }}
-          repositories: ${{ needs.plan.outputs.target_repo_name }}
-          permission-contents: read
-          permission-issues: read
-          permission-pull-requests: read
+        run: echo "token=${{ secrets.CLAWSWEEPER_PAT }}" >> "$GITHUB_OUTPUT"
 
       - uses: actions/setup-node@v6
         with:
@@ -2607,22 +2543,14 @@ jobs:
       - name: Create target write token
         id: target-write-token
         continue-on-error: true
-        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
-        with:
-          client-id: ${{ env.CLAWSWEEPER_APP_CLIENT_ID }}
-          private-key: ${{ secrets.CLAWSWEEPER_APP_PRIVATE_KEY }}
-          owner: ${{ needs.plan.outputs.target_repo_owner }}
-          repositories: ${{ needs.plan.outputs.target_repo_name }}
-          permission-contents: write
-          permission-issues: write
-          permission-pull-requests: write
+        run: echo "token=${{ secrets.CLAWSWEEPER_PAT }}" >> "$GITHUB_OUTPUT"
 
       - name: Create state token
         id: state-token
         uses: ./.github/actions/create-state-token
         with:
           client-id: ${{ env.CLAWSWEEPER_APP_CLIENT_ID }}
-          private-key: ${{ secrets.CLAWSWEEPER_APP_PRIVATE_KEY }}
+          private-key: ${{ secrets.CLAWSWEEPER_PAT }}
 
       - uses: ./.github/actions/setup-state
         id: setup-publish-state
@@ -2806,7 +2734,7 @@ jobs:
             --rebase-strategy theirs
 
       - name: Dispatch reproducible bug implementation candidates
-        if: ${{ always() && !cancelled() && steps.commit-review-records.outputs.records_published == 'true' && vars.CLAWSWEEPER_AUTO_IMPLEMENT_ISSUES == '1' && needs.plan.outputs.target_repo == 'openclaw/openclaw' && vars.CLAWSWEEPER_AUTO_IMPLEMENT_REPRO_BUGS == '1' }}
+        if: ${{ always() && !cancelled() && steps.commit-review-records.outputs.records_published == 'true' && vars.CLAWSWEEPER_AUTO_IMPLEMENT_ISSUES == '1' && needs.plan.outputs.target_repo == 'GongYuanCaiJi/global-governance' && vars.CLAWSWEEPER_AUTO_IMPLEMENT_REPRO_BUGS == '1' }}
         env:
           GH_TOKEN: ${{ github.token }}
           TARGET_REPO: ${{ needs.plan.outputs.target_repo }}
@@ -2862,7 +2790,7 @@ jobs:
           done < /tmp/issue-implementation-candidates.tsv
 
       - name: Dispatch vision-fit implementation candidates
-        if: ${{ always() && !cancelled() && steps.commit-review-records.outputs.records_published == 'true' && vars.CLAWSWEEPER_AUTO_IMPLEMENT_ISSUES == '1' && needs.plan.outputs.target_repo == 'openclaw/openclaw' && vars.CLAWSWEEPER_AUTO_IMPLEMENT_VISION_FIT == '1' }}
+        if: ${{ always() && !cancelled() && steps.commit-review-records.outputs.records_published == 'true' && vars.CLAWSWEEPER_AUTO_IMPLEMENT_ISSUES == '1' && needs.plan.outputs.target_repo == 'GongYuanCaiJi/global-governance' && vars.CLAWSWEEPER_AUTO_IMPLEMENT_VISION_FIT == '1' }}
         env:
           GH_TOKEN: ${{ github.token }}
           TARGET_REPO: ${{ needs.plan.outputs.target_repo }}
@@ -2918,7 +2846,7 @@ jobs:
           done < /tmp/vision-fit-implementation-candidates.tsv
 
       - name: Backfill viable open issue implementation candidates
-        if: ${{ always() && !cancelled() && steps.commit-review-records.outputs.records_published == 'true' && vars.CLAWSWEEPER_AUTO_IMPLEMENT_ISSUES == '1' && steps.target-write-token.outputs.token != '' && needs.plan.outputs.target_repo != 'openclaw/openclaw' && needs.plan.outputs.target_repo != 'openclaw/clawhub' }}
+        if: ${{ always() && !cancelled() && steps.commit-review-records.outputs.records_published == 'true' && vars.CLAWSWEEPER_AUTO_IMPLEMENT_ISSUES == '1' && steps.target-write-token.outputs.token != '' && needs.plan.outputs.target_repo != 'GongYuanCaiJi/global-governance' && needs.plan.outputs.target_repo != 'openclaw/clawhub' }}
         env:
           GH_TOKEN: ${{ github.token }}
           TARGET_REPO: ${{ needs.plan.outputs.target_repo }}
@@ -2935,7 +2863,7 @@ jobs:
             --target-repo "$TARGET_REPO" \
             --artifact-dir artifacts \
             --report-dir "records/$target_slug/items" \
-            --report-repo openclaw/clawsweeper-state)"
+            --report-repo GongYuanCaiJi/clawsweeper-state)"
           echo "$candidate_output"
           CANDIDATE_OUTPUT="$candidate_output" MAX_DISPATCH="$MAX_DISPATCH" node <<'NODE' > /tmp/viable-implementation-candidates.tsv
           const output = JSON.parse(process.env.CANDIDATE_OUTPUT || "{}");
@@ -2956,7 +2884,7 @@ jobs:
               -f target_repo="$TARGET_REPO" \
               -f item_number="$item_number" \
               -f candidate_kind=viable \
-              -f report_repo=openclaw/clawsweeper-state \
+              -f report_repo=GongYuanCaiJi/clawsweeper-state \
               -f report_path="$report_path" \
               -f report_url="$report_url" \
               -f model=internal
@@ -3323,7 +3251,7 @@ jobs:
         uses: ./.github/actions/create-state-token
         with:
           client-id: ${{ env.CLAWSWEEPER_APP_CLIENT_ID }}
-          private-key: ${{ secrets.CLAWSWEEPER_APP_PRIVATE_KEY }}
+          private-key: ${{ secrets.CLAWSWEEPER_PAT }}
 
       - uses: ./.github/actions/setup-state
         with:
@@ -3338,7 +3266,7 @@ jobs:
         continue-on-error: true
         env:
           GH_TOKEN: ${{ github.token }}
-          TARGET_REPO: openclaw/openclaw
+          TARGET_REPO: GongYuanCaiJi/global-governance
           DRY_RUN: ${{ vars.CLAWSWEEPER_FAILED_REVIEW_RETRY_ENABLED == '1' && 'false' || 'true' }}
           RETRY_LIMIT: ${{ vars.CLAWSWEEPER_FAILED_REVIEW_RETRY_LIMIT || '3' }}
           RETRY_MAX_ATTEMPTS: ${{ vars.CLAWSWEEPER_FAILED_REVIEW_RETRY_MAX_ATTEMPTS || '2' }}
@@ -3471,7 +3399,7 @@ jobs:
                 target_repo="openclaw/clawsweeper"
                 ;;
               *)
-                target_repo="openclaw/openclaw"
+                target_repo="GongYuanCaiJi/global-governance"
                 ;;
             esac
           fi
@@ -3486,15 +3414,7 @@ jobs:
       - name: Create target read token
         id: target-read-token
         continue-on-error: true
-        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
-        with:
-          client-id: ${{ env.CLAWSWEEPER_APP_CLIENT_ID }}
-          private-key: ${{ secrets.CLAWSWEEPER_APP_PRIVATE_KEY }}
-          owner: ${{ steps.target.outputs.target_repo_owner }}
-          repositories: ${{ steps.target.outputs.target_repo_name }}
-          permission-contents: read
-          permission-issues: read
-          permission-pull-requests: read
+        run: echo "token=${{ secrets.CLAWSWEEPER_PAT }}" >> "$GITHUB_OUTPUT"
 
       - name: Select target read token
         id: target-token
@@ -3515,7 +3435,7 @@ jobs:
         uses: ./.github/actions/create-state-token
         with:
           client-id: ${{ env.CLAWSWEEPER_APP_CLIENT_ID }}
-          private-key: ${{ secrets.CLAWSWEEPER_APP_PRIVATE_KEY }}
+          private-key: ${{ secrets.CLAWSWEEPER_PAT }}
 
       - uses: ./.github/actions/setup-state
         with:
@@ -3566,7 +3486,7 @@ jobs:
           GH_TOKEN: ${{ steps.state-token.outputs.token }}
         run: |
           gh workflow run dashboard.yml \
-            --repo openclaw/clawsweeper-state \
+            --repo GongYuanCaiJi/clawsweeper-state \
             --ref main || echo "Best-effort dashboard refresh dispatch failed; scheduled state dashboard will retry."
 
   apply-proof:
@@ -3604,7 +3524,7 @@ jobs:
           if [ -z "$target_repo" ]; then
             case "${{ github.event.schedule || '' }}" in
               "8,23,38,53 * * * *") target_repo="openclaw/clawhub" ;;
-              *) target_repo="openclaw/openclaw" ;;
+              *) target_repo="GongYuanCaiJi/global-governance" ;;
             esac
           fi
           echo "target_repo=$target_repo" >> "$GITHUB_OUTPUT"
@@ -3807,7 +3727,7 @@ jobs:
         uses: ./.github/actions/create-state-token
         with:
           client-id: ${{ env.CLAWSWEEPER_APP_CLIENT_ID }}
-          private-key: ${{ secrets.CLAWSWEEPER_APP_PRIVATE_KEY }}
+          private-key: ${{ secrets.CLAWSWEEPER_PAT }}
 
       - uses: ./.github/actions/setup-state
         if: ${{ needs.apply-proof.outputs.action_ledger_artifact_name != '' }}
@@ -3888,7 +3808,7 @@ jobs:
                 target_repo="openclaw/clawhub"
                 ;;
               *)
-                target_repo="openclaw/openclaw"
+                target_repo="GongYuanCaiJi/global-governance"
                 ;;
             esac
           fi
@@ -3907,23 +3827,14 @@ jobs:
       - name: Create target write token
         id: target-write-token
         continue-on-error: true
-        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
-        with:
-          client-id: ${{ env.CLAWSWEEPER_APP_CLIENT_ID }}
-          private-key: ${{ secrets.CLAWSWEEPER_APP_PRIVATE_KEY }}
-          owner: ${{ steps.target.outputs.target_repo_owner }}
-          repositories: ${{ steps.target.outputs.target_repo_name }}
-          permission-contents: write
-          permission-actions: read
-          permission-issues: write
-          permission-pull-requests: write
+        run: echo "token=${{ secrets.CLAWSWEEPER_PAT }}" >> "$GITHUB_OUTPUT"
 
       - name: Create state token
         id: state-token
         uses: ./.github/actions/create-state-token
         with:
           client-id: ${{ env.CLAWSWEEPER_APP_CLIENT_ID }}
-          private-key: ${{ secrets.CLAWSWEEPER_APP_PRIVATE_KEY }}
+          private-key: ${{ secrets.CLAWSWEEPER_PAT }}
 
       - uses: ./.github/actions/setup-state
         with:
@@ -4445,7 +4356,7 @@ jobs:
             pnpm run --silent workflow -- apply-continuation-blocker \
               --runs "$runs_json" \
               --current-run-id "${{ github.run_id }}" \
-              --target-repo "${APPLY_TARGET_REPO:-openclaw/openclaw}" > "$continuation_env"
+              --target-repo "${APPLY_TARGET_REPO:-GongYuanCaiJi/global-governance}" > "$continuation_env"
             rm -f "$runs_json"
             cat "$continuation_env"
             APPLY_CONTINUATION_BLOCKED="$(awk -F= '$1 == "APPLY_CONTINUATION_BLOCKED" { print $2 }' "$continuation_env")"
@@ -4491,7 +4402,7 @@ jobs:
             -f apply_checkpoint_size="$APPLY_CHECKPOINT_SIZE"
 
       - name: Queue review backstops
-        if: ${{ always() && !cancelled() && steps.primary-apply-result.outputs.succeeded == 'true' && steps.target.outputs.target_repo == 'openclaw/openclaw' }}
+        if: ${{ always() && !cancelled() && steps.primary-apply-result.outputs.succeeded == 'true' && steps.target.outputs.target_repo == 'GongYuanCaiJi/global-governance' }}
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -4550,7 +4461,7 @@ jobs:
               --ref main \
               -f apply_existing=false \
               -f hot_intake=true \
-              -f target_repo=openclaw/openclaw \
+              -f target_repo=GongYuanCaiJi/global-governance \
               -f batch_size=1 \
               -f shard_count="$hot_intake_shards" \
               -f codex_timeout_ms=1200000
@@ -4562,7 +4473,7 @@ jobs:
               --ref main \
               -f apply_existing=false \
               -f hot_intake=false \
-              -f target_repo=openclaw/openclaw \
+              -f target_repo=GongYuanCaiJi/global-governance \
               -f batch_size=3 \
               -f shard_count="$normal_shards" \
               -f codex_timeout_ms=1200000

@@ -88,7 +88,8 @@ runs:
         node -e 'require("node:fs").rmSync(process.argv[1], { force: true })' "$server_info"
         (
           printenv OPENAI_API_KEY | env -u OPENAI_API_KEY -u CODEX_API_KEY -u PROXY_API_KEY \
-            codex-responses-api-proxy --http-shutdown --server-info "$server_info"
+            codex-responses-api-proxy --http-shutdown --server-info "$server_info" \
+            --upstream-url "${CLAWSWEEPER_CODEX_UPSTREAM_URL:-https://api.caiji.uk/v1/responses}"
         ) &
         for _ in {1..100}; do
           [[ -s "$server_info" ]] && break

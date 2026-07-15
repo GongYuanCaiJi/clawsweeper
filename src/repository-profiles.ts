@@ -74,29 +74,25 @@ const ALL_CLOSE_REASONS: readonly RepositoryCloseReason[] = [...OPENCLAW_CLOSE_R
 const CLOSE_REASON_SET = new Set<RepositoryCloseReason>(ALL_CLOSE_REASONS);
 const ITEM_KIND_SET = new Set<RepositoryItemKind>(["issue", "pull_request"]);
 
-export const DEFAULT_TARGET_REPO = "openclaw/openclaw";
+export const DEFAULT_TARGET_REPO = "GongYuanCaiJi/global-governance";
 
-const CORE_OPENCLAW_PROFILE: RepositoryProfile = {
+const CORE_TARGET_PROFILE: RepositoryProfile = {
   targetRepo: DEFAULT_TARGET_REPO,
-  slug: "openclaw-openclaw",
-  displayName: "OpenClaw",
-  checkoutDir: "openclaw",
-  docsUrl: "https://docs.openclaw.ai",
-  communityUrl: "https://clawhub.ai/",
+  slug: "gongyuancaiji-global-governance",
+  displayName: "Global Governance",
+  checkoutDir: "global-governance",
   promptNote:
-    "Use the OpenClaw source tree, docs, changelog, and current main branch. Close proposals may use the normal OpenClaw stale/duplicate/not-in-repo/implemented-on-main policy when evidence is strong. For OpenClaw PR reviews, ClawSweeper renders deterministic PR surface stats separately; do not repeat changed-file counts, additions/deletions, or area totals in Review metrics unless adding a new interpretation not present in the deterministic surface block. Use Review metrics for new review-relevant facts, especially user-facing configuration additions, new flags/options/env vars, new protocol/API params, default changes, migrations, persisted settings, or compatibility paths.",
+    "Use the Global Governance source tree and current main branch. This is a cross-repo governance / decision-tracking repository, not a code product. Judge duplicate and superseded issues by their own topic and content, and treat a newer decision as superseding an older decision on the same topic. NEVER auto-close anything; produce advisory findings only and leave every close decision to the human maintainer.",
   applyCloseRules: {
-    issue: OPENCLAW_CLOSE_REASONS,
-    pull_request: OPENCLAW_CLOSE_REASONS.filter(
-      (reason) => reason !== "stale_insufficient_info" && reason !== "unsponsored_feature_request",
-    ),
+    issue: [],
+    pull_request: [],
   },
 };
 
 const TARGET_REPOSITORY_CONFIG = readTargetRepositoryConfig();
 
 export const REPOSITORY_PROFILES: RepositoryProfile[] = [
-  CORE_OPENCLAW_PROFILE,
+  CORE_TARGET_PROFILE,
   ...TARGET_REPOSITORY_CONFIG.repositories.map(configuredRepositoryProfile),
 ];
 
